@@ -218,3 +218,21 @@ body {
 .news-card:hover {
     transform: translateY(-5px);
 }
+
+/* Active category style */
+.nav-link.active {
+    color: #3182ce !important;
+    border-bottom: 3px solid #3182ce;
+}
+
+.category-heading {
+    margin: 2rem 0;
+    font-family: 'Merriweather', serif;
+    color: #1a365d;
+    border-left: 4px solid #e53e3e;
+    padding-left: 1rem;
+}
+
+.category-news {
+    margin: 3rem 0;
+}
