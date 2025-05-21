@@ -184,3 +184,37 @@ body {
     padding: 2rem;
     font-size: 1.2rem;
 }
+
+.error-message {
+    text-align: center;
+    padding: 2rem;
+    background: #fff3cd;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.article-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.source {
+    color: #3182ce;
+}
+
+.published-at {
+    color: #718096;
+}
+
+.news-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
