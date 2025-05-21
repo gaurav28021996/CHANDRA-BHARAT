@@ -24,7 +24,7 @@ async function fetchGNews(category = currentCategory) {
         updateActiveCategory(category);
         
         // Featured article
-        const featuredArticle = data.articles[];
+        const featuredArticle = data.articles[3];
         featuredSection.innerHTML = `
             <div class="featured-card">
                 <div class="featured-content">
