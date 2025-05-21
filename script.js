@@ -1,33 +1,32 @@
-const API_KEY = '51c83cd1198f1a137e448732abf813ef'; // Get from gnews.io
-const newsContainer = document.getElementById('news-container');
-const featuredSection = document.querySelector('.featured-news');
+const API_KEY = '51c83cd1198f1a137e448732abf813ef';
+const categoryContainer = document.getElementById('category-container');
+const categoryTitle = document.getElementById('category-title');
 
-async function fetchGNews() {
+// Category mapping (GNews categories)
+const categories = {
+    politics: 'politics',
+    technology: 'technology',
+    entertainment: 'entertainment',
+    sports: 'sports',
+    general: 'general'
+};
+
+// Fetch news by category
+async function fetchCategoryNews(category = 'general') {
     try {
-        const response = await fetch(`https://gnews.io/api/v4/top-headlines?token=${API_KEY}&lang=en`);
+        const response = await fetch(
+            `https://gnews.io/api/v4/top-headlines?category=${category}&token=${API_KEY}&lang=en`
+        );
         const data = await response.json();
         
-        // Clear loading state
-        newsContainer.innerHTML = '';
+        // Update category title
+        categoryTitle.textContent = `${category.toUpperCase()} NEWS`;
         
-        // Display featured article
-        const featuredArticle = data.articles[0];
-        featuredSection.innerHTML = `
-            <div class="featured-card">
-                <div class="featured-content">
-                    <span class="category-tag">Top Story</span>
-                    <h2>${featuredArticle.title}</h2>
-                    <p>${featuredArticle.description}</p>
-                    <a href="${featuredArticle.url}" target="_blank" class="read-more">Read Full Article →</a>
-                </div>
-                <div class="featured-image">
-                    <img src="${featuredArticle.image || 'placeholder.jpg'}" alt="${featuredArticle.title}">
-                </div>
-            </div>
-        `;
-
-        // Display other articles
-        data.articles.slice(1).forEach(article => {
+        // Clear previous content
+        categoryContainer.innerHTML = '';
+        
+        // Generate news cards
+        data.articles.forEach(article => {
             const articleCard = document.createElement('div');
             articleCard.className = 'news-card';
             articleCard.innerHTML = `
@@ -44,27 +43,34 @@ async function fetchGNews() {
                     <a href="${article.url}" target="_blank" class="read-more">Read More →</a>
                 </div>
             `;
-            newsContainer.appendChild(articleCard);
+            categoryContainer.appendChild(articleCard);
         });
 
     } catch (error) {
-        console.error('Error fetching news:', error);
-        newsContainer.innerHTML = `
+        console.error('Error fetching category news:', error);
+        categoryContainer.innerHTML = `
             <div class="error-message">
-                <h3>⚠️ News temporarily unavailable</h3>
-                <p>Please check back later or try refreshing the page.</p>
+                <h3>⚠️ ${category} news unavailable</h3>
+                <p>Please try another category or check back later.</p>
             </div>
         `;
     }
 }
 
-// Auto-refresh news every 30 minutes
-setInterval(fetchGNews, 1800000);
+// Handle category clicks
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const category = e.target.dataset.category;
+        
+        // Update active state
+        document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Fetch category news
+        fetchCategoryNews(category);
+    });
+});
 
 // Initial load
-fetchGNews();
-
-// Mobile menu toggle
-document.querySelector('.menu-toggle').addEventListener('click', () => {
-    document.querySelector('.nav-list').classList.toggle('active');
-});
+fetchCategoryNews('general');
