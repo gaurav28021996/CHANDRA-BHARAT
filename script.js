@@ -112,7 +112,7 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
 });
 
 // Auto-refresh with current category
-setInterval(() => fetchGNews(currentCategory), 1800000);
+setInterval(() => fetchGNews(currentCategory), 180000);
 
 // Initial load
 fetchGNews();
