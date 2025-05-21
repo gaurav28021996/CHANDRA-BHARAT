@@ -226,7 +226,7 @@ body {
 }
 
 .category-heading {
-    margin: 1rem 0;
+    margin: 2rem 0;
     font-family: 'Merriweather', serif;
     color: #1a365d;
     border-left: 4px solid #e53e3e;
@@ -234,5 +234,5 @@ body {
 }
 
 .category-news {
-    margin: 3rem 0;
+    margin: 2rem 0;
 }
