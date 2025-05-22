@@ -17,87 +17,95 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
-    <!-- AdSense Script (Replace with your own) -->
+    <!-- AdSense Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
      crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Header -->
     <header class="header">
-        <div class="container">
+        <div class="container header-container">
             <div class="logo">
                 <h1>CHANDRA BHARAT</h1>
-                <p>Trusted News Network</p>
+                <p class="logo-subtitle">Trusted News Network</p>
             </div>
             
             <!-- Navigation -->
             <nav class="nav">
-    <ul class="nav-list">
-        <li><a href="#" class="nav-link active" data-category="general">Home</a></li>
-        <li><a href="#" class="nav-link" data-category="politics">Politics</a></li>
-        <li><a href="#" class="nav-link" data-category="technology">Technology</a></li>
-        <li><a href="#" class="nav-link" data-category="entertainment">Entertainment</a></li>
-        <li><a href="#" class="nav-link" data-category="sports">Sports</a></li>
-    </ul>
-</nav> 
+                <button class="menu-toggle" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link active" data-category="general">Home</a></li>
+                    <li><a href="#" class="nav-link" data-category="politics">Politics</a></li>
+                    <li><a href="#" class="nav-link" data-category="technology">Technology</a></li>
+                    <li><a href="#" class="nav-link" data-category="entertainment">Entertainment</a></li>
+                    <li><a href="#" class="nav-link" data-category="sports">Sports</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Featured News Section -->
-    <section class="featured-news">
-        <div class="container">
-            <div class="featured-card">
-                <div class="featured-content">
-                    <span class="category-tag">Breaking News</span>
-                    <h2 id="featured-title">Loading Latest News...</h2>
-                    <p id="featured-description"></p>
-                    <a href="#" id="featured-link" class="read-more">Read More →</a>
-                </div>
-                <div class="featured-image">
-                    <img id="featured-img" src="placeholder.jpg" alt="Featured News" loading="lazy">
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Featured News Section -->
+        <section class="featured-news">
+            <div class="container">
+                <div class="featured-card">
+                    <div class="featured-content">
+                        <span class="category-tag">Breaking News</span>
+                        <h2 id="featured-title">Loading Latest News...</h2>
+                        <p id="featured-description" class="featured-excerpt"></p>
+                        <a href="#" id="featured-link" class="read-more">Read More →</a>
+                    </div>
+                    <div class="featured-media">
+                        <img id="featured-img" src="placeholder.jpg" alt="Featured News" class="featured-image" loading="lazy">
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- News Grid -->
-    <main class="news-grid container" id="news-container">
-        <!-- News cards will be inserted here by JavaScript -->
-        <div class="loader">Loading News...</div>
+        <!-- Category News Grid -->
+        <section class="category-news">
+            <div class="container">
+                <h2 class="category-heading" id="category-title">Latest Updates</h2>
+                <div class="news-grid" id="news-container">
+                    <div class="loader">Loading News...</div>
+                </div>
+            </div>
+        </section>
     </main>
-    
-<section class="category-news">
-    <div class="container">
-        <h2 class="category-heading" id="category-title">Latest News</h2>
-        <div class="news-grid" id="category-container"></div>
-    </div>
-</section>
-  
+
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-section">
-                <h3>About CHANDRA BHARAT</h3>
-                <p>Your trusted source for accurate and timely news updates.</p>
+        <div class="container footer-container">
+            <div class="footer-column about-column">
+                <h3 class="footer-heading">About CHANDRA BHARAT</h3>
+                <p class="footer-text">Your trusted source for accurate and timely news updates.</p>
             </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms of Service</a></li>
-                    <li><a href="#careers">Careers</a></li>
+            
+            <div class="footer-column links-column">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#privacy" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#terms" class="footer-link">Terms of Service</a></li>
+                    <li><a href="#careers" class="footer-link">Careers</a></li>
                 </ul>
             </div>
-            <div class="footer-section">
-                <h3>Subscribe</h3>
+            
+            <div class="footer-column newsletter-column">
+                <h3 class="footer-heading">Stay Updated</h3>
                 <form class="subscribe-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button type="submit">Subscribe</button>
+                    <input type="email" class="subscribe-input" placeholder="Enter your email" required>
+                    <button type="submit" class="subscribe-btn">Subscribe</button>
                 </form>
             </div>
         </div>
+        
         <div class="copyright">
-            <p>© 2024 CHANDRA BHARAT. All rights reserved.</p>
+            <p class="copyright-text">© 2024 CHANDRA BHARAT. All rights reserved.</p>
         </div>
     </footer>
 
